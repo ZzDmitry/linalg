@@ -30,13 +30,34 @@ for row in range(0, rows):
 
 def rid_of_col(matrix, n):
 	for row in range(n + 1, len(matrix)):
+		if matrix[n][n] == 0:
+			return False
 		mul = matrix[row][n] / matrix[n][n]
 		for col in range(n, len(matrix[row])):
 			matrix[row][col] = matrix[row][col] - matrix[n][col] * mul
+	return True
 
 #for row in range(1, rows):
 #	mul = 1
 
+fail = False
 for n in range(0, rows):
-	rid_of_col(matrix, n)
+	if not rid_of_col(matrix, n):
+		fail = True
+		break
+
+if fail:
+	print('NO')
+	exit()
+
 print(matrix)
+
+x = cols * [0]
+for row in range(rows - 1, -1, -1):
+	num = right[row]
+	for row in range(col, -1, -1):
+		num = num - ##############
+
+		x[col] = 
+
+print(x)
