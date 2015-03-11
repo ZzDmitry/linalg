@@ -1,0 +1,1 @@
+type 3.txt | python ex.py 
