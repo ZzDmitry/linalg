@@ -119,8 +119,8 @@ def rid_of_col(matrix, right, r, c):
 def make_triangle(matrix, cols, right):	
 	row = 0
 	for n in range(0, cols):
-		print(stringify_matrix(matrix, right, 2))
-		print('rid of ' + str(n))
+		#print(stringify_matrix(matrix, right, 2))
+		#print('rid of ' + str(n))
 		if rid_of_col(matrix, right, row, n):
 			row = row + 1
 		#print(stringify_matrix(matrix, right, 2))
@@ -139,7 +139,7 @@ def rid_of_tail_zeros(matrix, cols, right):
 	
 def solve(matrix, cols, right):
 	make_triangle(matrix, cols, right)
-	print(stringify_matrix(matrix, right, 2))
+	#print(stringify_matrix(matrix, right, 2))
 	ok = rid_of_tail_zeros(matrix, cols, right)
 	if not ok:
 		return 0 # no solutions
@@ -161,27 +161,20 @@ def solve(matrix, cols, right):
 	
 	return x # single solution
 	
-print(stringify_matrix(matrix, right, 2))
-print(solve(matrix, cols, right))
-print(stringify_matrix(matrix, right, 2))
-exit()
+#print(stringify_matrix(matrix, right, 2))
+#print(solve(matrix, cols, right))
+#print(stringify_matrix(matrix, right, 2))
 
-		
-if fail:
-	print('NO')
-	exit()
-
-print(matrix)
-print(right)
-exit()
-
-x = cols * [0]
-for row in range(rows - 1, -1, -1):
-	num = right[row]
-	for row in range(col, -1, -1):
-		num = num - 1##############
-
-		x[col] = 1#############333
-		
-
-print(x)
+result = solve(matrix, cols, right)
+if type(result) is list:
+	s = ''
+	for i in range(0, len(result)):
+		if i != 0:
+			s = s + ' '
+		s = s + str(result[i])
+	print(s)
+else:
+	if result < 0:
+		print('INF')
+	else:
+		print('NO')
