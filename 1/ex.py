@@ -172,6 +172,7 @@ if type(result) is list:
 		if i != 0:
 			s = s + ' '
 		s = s + str(result[i])
+	print('YES')
 	print(s)
 else:
 	if result < 0:
